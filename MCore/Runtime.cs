@@ -1,15 +1,21 @@
+using MCore.Memory;
+using MCore.Registers;
+using MCore.Stack;
 using System;
 
 namespace MCore
 {
     public class Runtime
     {
-        private Memory _memory;
-        private Stack _stack;
-        private Registers _registers;
+        private IRuntimeMemory _memory;
+        private IRuntimeStack _stack;
+        private IRuntimeRegisters _registers;
         private int _pc;
 
-        public Runtime(Memory memory, Stack stack, Registers registers)
+        public Runtime(
+            IRuntimeMemory memory,
+            IRuntimeStack stack,
+            IRuntimeRegisters registers)
         {
             _memory = memory;
             _stack = stack;

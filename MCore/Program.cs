@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MCore.Memory;
+using MCore.Registers;
+using MCore.Stack;
+using System;
 
 namespace MCore
 {
@@ -8,12 +11,14 @@ namespace MCore
         private static int _stackStart = 1024 - 128;
         static void Main(string[] args)
         {
-            var memory = new Memory();
-            var stack = new Stack(memory, _stackSize, _stackStart);
-            var registers = new Registers();
-            var runtime = new Runtime(memory, stack, registers);
+            Console.WriteLine("MCORE::MAIN::START");
+            IRuntimeMemory memory = new RuntimeMemory();
+            IRuntimeStack stack = new RuntimeStack(memory, _stackSize, _stackStart);
+            IRuntimeRegisters registers = new RuntimeRegisters();
 
+            var runtime = new Runtime(memory, stack, registers);
             runtime.Start();
+            Console.WriteLine("MCORE::MAIN::FINISH");
         }
     }
 }
