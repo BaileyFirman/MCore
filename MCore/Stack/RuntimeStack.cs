@@ -1,13 +1,13 @@
 namespace MCore.Stack
 {
-    public class Stack : IStack
+    public class RuntimeStack : IRuntimeStack
     {
         public Memory _memory;
         public int Size { get; private set; }
         public int StackPointer { get; private set; }
         public int FramePointer { get; private set; }
 
-        public Stack(Memory memory, int size, int stackPointer)
+        public RuntimeStack(Memory memory, int size, int stackPointer)
         {
             _memory = memory;
             Size = size;

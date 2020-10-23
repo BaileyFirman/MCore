@@ -1,6 +1,6 @@
 namespace MCore.Stack
 {
-    public interface IStack
+    public interface IRuntimeStack
     {
         int Size { get; }
         int StackPointer { get; }
