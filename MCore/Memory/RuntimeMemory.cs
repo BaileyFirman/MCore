@@ -1,12 +1,12 @@
 using System;
 
-namespace MCore
+namespace MCore.Memory
 {
-    public class Memory
+    public class RuntimeMemory : IRuntimeMemory
     {
         private int[] _memory;
         public int Size => _memory.Length;
-        public Memory()
+        public RuntimeMemory()
         {
             _memory = new int[1024];
         }
